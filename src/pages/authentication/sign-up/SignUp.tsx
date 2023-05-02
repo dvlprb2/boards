@@ -6,7 +6,7 @@ import EyeSlashIcon from '@rsuite/icons/legacy/EyeSlash';
 import { Link } from 'react-router-dom';
 import Brand from '@/components/Brand';
 
-const SignIn = () => {
+const SignUp = () => {
   const [visible, setVisible] = React.useState(false);
 
   return (
@@ -18,7 +18,8 @@ const SignIn = () => {
         height: '100vh'
       }}
     >
-      <Brand style={{ marginBottom: 10 }} />
+      <Brand style={{ marginBottom: 10 }} showText />
+
       <Panel
         header={<h3>Create an Account</h3>}
         bordered
@@ -77,4 +78,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

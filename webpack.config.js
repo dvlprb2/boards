@@ -3,6 +3,7 @@ const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -64,6 +65,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new Dotenv({
+      path: './.env'
+    }),
     new HtmlwebpackPlugin({
       title: 'Kanban Boards Template',
       filename: 'index.html',
