@@ -69,7 +69,7 @@ module.exports = {
       path: './.env'
     }),
     new HtmlwebpackPlugin({
-      title: 'Kanban Boards Template',
+      title: 'DB2 Boards',
       filename: 'index.html',
       template: './src/index.html',
       inject: true,

@@ -1,24 +1,35 @@
 .board-box {
   width: 300px;
+  background: #f5f8fa;
+  height: 82px;
+  border: 1px dotted #ddd;
+  cursor: pointer;
+  color: #000;
+
+  &:hover {
+    background: #f5f5f5;
+  }
 
   a {
     color: #fff;
     text-decoration: none;
   }
+
   .title {
-    font-size: 1.5em;
+    font-size: 1em;
+    color: var(--rs-text-primary);
   }
 
-  .rs-icon {
-    font-size: 4em;
-    color: #fff;
+  .rs-avatar {
+    vertical-align: middle;
   }
 
   &.board-new {
     background: #f5f8fa;
-    height: 96px;
+    height: 82px;
     border: 1px dotted #ddd;
     cursor: pointer;
+
     a {
       color: var(--rs-text-primary);
     }
@@ -36,6 +47,8 @@
 
 .rs-theme-dark {
   .board-box {
+    background: var(--rs-gray-600);
+
     &.board-new {
       background: var(--rs-gray-600);
     }

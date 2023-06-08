@@ -14,8 +14,11 @@ import {
     InputGroup
 } from 'rsuite';
 import {Icon} from '@rsuite/icons';
+import OffIcon from '@rsuite/icons/Off';
+import MessageIcon from '@rsuite/icons/Message';
 import NoticeIcon from '@rsuite/icons/Notice';
 import HelpOutlineIcon from '@rsuite/icons/HelpOutline';
+import UserBadgeIcon from '@rsuite/icons/UserBadge';
 import GithubIcon from '@rsuite/icons/legacy/Github';
 import SearchIcon from '@rsuite/icons/Search';
 import {MdOutlineNightlight, MdOutlineLightMode} from 'react-icons/md';
@@ -32,23 +35,22 @@ const renderAdminSpeaker = ({onClose, left, top, className}: any, ref) => {
         <Popover ref={ref} className={className} style={{left, top}} full>
             <Dropdown.Menu onSelect={handleSelect}>
                 <Dropdown.Item panel style={{padding: 10, width: 160}}>
-                    <p>Signed in as</p>
-                    <strong>{currentUser.displayName}</strong>
+                    <p><strong>{currentUser.displayName}</strong></p>
+                    <p style={{margin: 0}}><small>{currentUser.email}</small></p>
                 </Dropdown.Item>
                 <Dropdown.Item divider/>
-                <Dropdown.Item>Profile</Dropdown.Item>
-                <Dropdown.Item>Feedback</Dropdown.Item>
-                <Dropdown.Item divider/>
-                <Dropdown.Item>Settings</Dropdown.Item>
-                <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
+                <Dropdown.Item icon={<UserBadgeIcon/>} href="/profile" as="a">Profile</Dropdown.Item>
+                <Dropdown.Item icon={<MessageIcon/>}>Feedback</Dropdown.Item>
                 <Dropdown.Item
                     icon={<HelpOutlineIcon/>}
                     href="https://rsuitejs.com"
                     target="_blank"
                     as="a"
                 >
-                    Help{' '}
+                    Help
                 </Dropdown.Item>
+                <Dropdown.Item divider/>
+                <Dropdown.Item icon={<OffIcon/>} onClick={logout}>Sign out</Dropdown.Item>
             </Dropdown.Menu>
         </Popover>
     );

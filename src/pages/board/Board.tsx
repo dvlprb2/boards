@@ -18,7 +18,6 @@ import {
 import MoreIcon from '@rsuite/icons/More';
 import { VscEdit, VscTrash } from 'react-icons/vsc';
 
-import { CardList } from '@/data/boards';
 import TextEditor from './TextEditor';
 import DrawerView from './DrawerView';
 import BlankColumn from './BlankColumn';
@@ -76,11 +75,7 @@ const move = (source, destination, droppableSource, droppableDestination) => {
   return result;
 };
 
-interface BoardProps {
-  data: CardList;
-}
-
-const Board = (props: BoardProps) => {
+const Board = props => {
   const { data } = props;
 
   const [state, setState] = useState(data?.map(item => item.cards) || []);

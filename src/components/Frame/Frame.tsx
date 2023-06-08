@@ -7,12 +7,10 @@ import {
     Content,
     Nav,
     DOMHelper,
-    Stack,
-    IconButton,
     CustomProvider
 } from 'rsuite';
 import enGB from 'rsuite/locales/en_GB';
-import {Outlet, Link} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import NavToggle from './NavToggle';
 import Header from '../Header';
 import NavLink from '../NavLink';
@@ -20,8 +18,6 @@ import Brand from '../Brand';
 import {Icon} from '@rsuite/icons';
 import {VscCalendar} from 'react-icons/vsc';
 import {BsKanbanFill} from 'react-icons/bs';
-import PlusIcon from '@rsuite/icons/Plus';
-import boards from '@/data/boards';
 
 const {getHeight, on} = DOMHelper;
 
@@ -44,7 +40,7 @@ export interface NavItemData {
 }
 
 const Frame = () => {
-    const [expand, setExpand] = useState(true);
+    const [expand, setExpand] = useState(false);
     const [windowHeight, setWindowHeight] = useState(getHeight(window));
     const [theme, setTheme] = useState<'light' | 'dark' | 'high-contrast'>('light');
 
@@ -92,19 +88,6 @@ const Frame = () => {
                                     eventKey="calendar"
                                     icon={<Icon as={VscCalendar}/>}
                                 />
-
-                                <Nav.Item panel className="collapse-hide">
-                                    <Stack justifyContent="space-between">
-                                        Yous boards
-                                        <Link to="/boards/new">
-                                            <IconButton icon={<PlusIcon/>} size="xs" appearance="subtle"/>
-                                        </Link>
-                                    </Stack>
-                                </Nav.Item>
-
-                                {boards.map((board, index) => (
-                                    <NavItem icon={board.icon} to={board.to} key={index} title={board.title}/>
-                                ))}
                             </Nav>
                         </Sidenav.Body>
                     </Sidenav>
